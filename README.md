@@ -18,6 +18,7 @@ Todos los contenedores están conectados a una red Docker bridge personalizada l
 ```bash
 docker network create --driver=bridge --subnet=192.168.100.0/24 sniffer_net
 docker compose up --build -d-
+```bash
 
 ejecución del sniffer:
 ```bash
