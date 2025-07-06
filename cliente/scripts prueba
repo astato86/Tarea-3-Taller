@@ -1,0 +1,12 @@
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT,
+    correo TEXT
+);
+
+INSERT INTO usuarios (nombre, correo) VALUES
+('Juan', 'juan@mail.com'),
+('Ana', 'ana@mail.com'),
+('Luis', 'luis@mail.com');
+
+SELECT * FROM usuarios;
