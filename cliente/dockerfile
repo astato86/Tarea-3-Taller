@@ -1,0 +1,5 @@
+FROM alpine:latest
+
+RUN apk add --no-cache postgresql-client
+
+CMD ["sleep", "3600"]
