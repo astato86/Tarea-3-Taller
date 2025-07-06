@@ -1,0 +1,32 @@
+services:
+  db:
+    build: ./servidor
+    container_name: postgres_server
+    networks:
+      - sniffer_net
+
+  client:
+    build: ./cliente
+    container_name: postgres_client
+    depends_on:
+      - db
+    networks:
+      - sniffer_net
+
+  scapy:
+    build: ./scapy
+    container_name: scapy_sniffer
+    stdin_open: true
+    tty: true
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - ./scripts:/scripts
+    networks:
+      - sniffer_net
+
+networks:
+  sniffer_net:
+    external: true
